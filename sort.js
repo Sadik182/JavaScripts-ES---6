@@ -22,3 +22,25 @@ function alphabeticalOrder(arr) {
   }
 
   numberSorted([50,4,5,7,2,1,9, 10, 15]);
+
+
+  //Return a Sorted Array Without Changing the Original Array
+
+
+  //A side effect of the sort method is that it changes the order of the elements in the original array. In other words, it mutates the array in place. One way to avoid this is to first concatenate an empty array to the one being sorted (remember that slice and concat return a new array), then run the sort method.
+
+  const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
+  // Only change code below this line
+  const a1 = arr.slice().concat();
+  const a2 = a1.sort((a, b) => a - b);
+  console.log(a1);
+  return a2;
+
+
+  // Only change code above this line
+}
+console.log(globalArray);
+
+nonMutatingSort(globalArray);
