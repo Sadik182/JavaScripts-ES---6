@@ -41,3 +41,58 @@ Animal.prototype = {
 
 let duck = Object.create(Animal.prototype); // Change this line
 let beagle = Object.create(Animal.prototype); // Change this line
+
+
+//Set the Child's Prototype to an Instance of the Parent
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+
+
+//Reset an Inherited Constructor Property
+
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+// Only change code below this line
+
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+let duck = new Bird();
+let beagle = new Dog();
+
+
+//Add Methods After Inheritance
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.bark = function() {
+  console.log('Woof!');
+}
+
+
+// Only change code above this line
+
+let beagle = new Dog();
